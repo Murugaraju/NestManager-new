@@ -4,7 +4,9 @@
     <v-content>
       
       <!-- <Login/> -->
-<Dashboard/>
+<!-- <Dashboard/> -->
+    <router-view/>
+
      
 
     </v-content>
@@ -13,14 +15,14 @@
 
 <script>
   
-import Dashboard from './components/Dashboard/Dashboard';
+// import Dashboard from './components/Dashboard/Dashboard';
 // import Login from './components/Login/Login'
 export default {
   name: 'App',
 
   components: {
     
-    Dashboard
+    // Dashboard
     // Login
   },
 
