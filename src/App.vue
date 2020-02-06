@@ -3,8 +3,8 @@
     
     <v-content>
       
-      <Login/>
-
+      <!-- <Login/> -->
+<Dashboard/>
      
 
     </v-content>
@@ -13,15 +13,15 @@
 
 <script>
   
-// import Dashboard from './components/Dashboard/Dashboard';
-import Login from './components/Login/Login'
+import Dashboard from './components/Dashboard/Dashboard';
+// import Login from './components/Login/Login'
 export default {
   name: 'App',
 
   components: {
     
-    // Dashboard
-    Login
+    Dashboard
+    // Login
   },
 
   data: () => ({

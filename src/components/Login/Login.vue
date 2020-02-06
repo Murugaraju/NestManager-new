@@ -70,6 +70,7 @@ export default {
             temp:''
         }
     },
+  
     methods:{
         toggle:()=>{
             this.showPassword=!this.showPassword
@@ -77,7 +78,7 @@ export default {
     },
     watch:{
         temp:()=>{
-            console.log("came because change of temp")
+            console.log("came because change of temp",this.temp)
         }
     }
    
