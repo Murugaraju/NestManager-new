@@ -6,7 +6,8 @@
 <script>
 export default {
     props:{
-        id:Number,
+        id:{type:Number,
+            required:true},
     }, 
     mounted:function(){console.log("came in ",this)}
 }

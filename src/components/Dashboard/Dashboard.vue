@@ -36,6 +36,7 @@
         color="#FF7F00"
         grow
         v-model="id"
+        
         >
           <v-tab :key="pg.id" v-for="pg in PGs" >
                 {{pg.name}}
