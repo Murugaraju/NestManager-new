@@ -1,6 +1,7 @@
-# ui
+# Nest Manager
 
 ## Project setup
+How To Run Frontend Server
 ```
 npm install
 ```

@@ -27,7 +27,7 @@
                   <v-text-field
                     label="Login"
                     name="login"
-                    v-model="temp"
+                    v-model="username"
                     prepend-icon="mdi-account-circle"
                     type="text"
                       dense
@@ -38,6 +38,7 @@
                     id="password"
                     label="Password"
                     name="password"
+                    v-model="password"
                     prepend-icon="mdi-lock"
                     :append-icon="showPassword?'mdi-eye':'mdi-eye-off'"
                     v-on:click:append="showPassword=!showPassword"
@@ -67,19 +68,16 @@ export default {
     data:()=>{
         return{
             showPassword:false,
-            temp:''
+            username:'',
+            password:''
         }
     },
   
     methods:{
-        toggle:()=>{
-            this.showPassword=!this.showPassword
-        }
+        
     },
     watch:{
-        temp:()=>{
-            console.log("came because change of temp",this.temp)
-        }
+        
     }
    
 }
