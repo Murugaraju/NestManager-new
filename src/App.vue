@@ -5,8 +5,8 @@
       
       <!-- <Login/> -->
 <!-- <Dashboard/> -->
-    <router-view/>
-
+    <!-- <router-view/> -->
+      <Main />
      
 
     </v-content>
@@ -17,13 +17,13 @@
   
 // import Dashboard from './components/Dashboard/Dashboard';
 // import Login from './components/Login/Login'
+import Main from './components/Main/Main';
 export default {
   name: 'App',
 
   components: {
     
-    // Dashboard
-    // Login
+    Main
   },
 
   data: () => ({
