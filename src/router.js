@@ -1,15 +1,37 @@
 
 import Vue from 'vue'
-import Router from 'vue-router'
-Vue.use(Router)
-
+import VueRouter from 'vue-router'
+Vue.use(VueRouter)
+//project components imports below
 import Login from './components/Login/Login'
 import LandingTemplate from './components/Dashboard/Dashboard'
 
-export const router =  new Router({
+
+
+
+
+
+
+
+
+
+
+
+
+export const router =  new VueRouter({
   mode: 'history',
     linkExactActiveClass: 'active',
     routes: [
+      // adding the main route object for the router-view outlet deciding
+      //commenting it for now, will look into this feature later url:-https://router.vuejs.org/guide/essentials/named-views.html
+      // {
+      //   path:'/',
+      //   components:{
+      //     default:LandingTemplate,
+      //   
+      //     footer:Footer
+      //   },
+      // },
       {
         path: '/',
         redirect: 'dashboard',
