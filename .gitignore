@@ -24,4 +24,4 @@ yarn-error.log*
 venv
 
 # Ignoring pycache for dashboard
-dashboard/__pycache__
+# dashboard/__pycache__
