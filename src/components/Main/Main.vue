@@ -1,23 +1,20 @@
 <template>
-    <v-app   id="content">
+   <fragment>
 
       
             <Navbar/>
-                <v-content 
-              
-                >
-                    <router-view class="body" ></router-view>
-                </v-content>``
+               
+                <router-view class="body" ></router-view>
+               
              <Footer />
-            <!-- <router-view class="footer" name="footer"></router-view> -->
+            
            
       
         
 
 
-
-     
-    </v-app>
+   </fragment>
+   
 </template>
 
 <script>

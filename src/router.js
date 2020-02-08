@@ -35,12 +35,12 @@ export const router =  new VueRouter({
       // },
       {
         path: '/',
-        redirect: 'dashboard',
+        redirect: 'Dashboard',
         name: 'dashboard',
         component: Main,
         children: [
           {
-            path: 'dashboard',
+            path: 'Dashboard',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
@@ -50,11 +50,11 @@ export const router =  new VueRouter({
         ]
       },
       {
-        path: '/login',
+        path: '/Login',
         component: Login,
         children: [
           {
-            path: '/login',
+            path: '/Login',
             name: 'login',
             component: () => import(/* webpackChunkName: "demo" */ './components/Login/Login'),
             meta: { title: 'Login' }

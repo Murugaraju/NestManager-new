@@ -24,7 +24,4 @@ yarn-error.log*
 venv
 
 # Ignoring pycache for dashboard
-dashboard/__pycache__
-dashboard/migrations
-# Ignoring pycache for backend_nest
-backend_nest/__pycache__
+__pycache__
