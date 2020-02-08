@@ -75,7 +75,7 @@ import Floors from './Floors';
   export default {
       name:'Dashboard',
       components:{
-        Floors
+        Floors,
       },
        data: () =>{ return {
       drawer: null,

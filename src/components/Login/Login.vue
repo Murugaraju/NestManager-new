@@ -12,7 +12,8 @@
             sm="8"
             md="4"
           >
-            <v-card class="elevation-12">
+          <p>{{geterror.data}}</p>
+            <v-card class="elevation-12" :loading="getloader">
               <v-toolbar
                 color="primary"
                 dark
@@ -52,7 +53,8 @@
               <v-divider/>
               <v-card-actions>
                 <v-spacer />
-                <v-btn color="primary">Login</v-btn>
+                <v-btn color="primary" :loading="getloader" @click="login">Login</v-btn>
+                <v-btn color="primary">Register</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -63,20 +65,38 @@
   </v-container>
 </template>
 <script>
+import { mapActions, mapGetters } from 'vuex'
+
 export default {
     name:'Login',
     data:()=>{
         return{
             showPassword:false,
             username:'',
-            password:''
+            password:'',
         }
     },
-  
+    computed: {
+     ...mapGetters('Loginstore', ['getloader', 'geterror'])
+    },
+   
     methods:{
+      ...mapActions('Loginstore', ['get_token_api']), // Imported Store
+      ...mapActions('Utility', ['notification']), // Imported Store
+      login(){
+          const { username, password } = this; // Getting username & password
+          // calling login api's
+          this.get_token_api({ username, password })
+         
+      }
         
     },
     watch:{
+      getloader(newvalue, oldvalue){
+        console.log('Old vallue', oldvalue)
+        console.log('New vallue', newvalue)
+
+      }
         
     }
    

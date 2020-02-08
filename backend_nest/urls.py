@@ -13,10 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path,include
+from django.views.generic import TemplateView
+from rest_framework.documentation import include_docs_urls
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.authentication import BasicAuthentication
+from rest_framework.schemas import get_schema_view
+from rest_framework.authtoken import views as drf_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pg/', include('dashboard.urls')),
+    # url(r'^api-token-auth/', drf_view.obtain_auth_token),
+    url('NestManager/docs/api', include_docs_urls(title='Nest Manager Api',
+                                                  authentication_classes=[BasicAuthentication, ],
+                                                  permission_classes=[IsAuthenticated, ])),
+
+
 ]
