@@ -1,6 +1,6 @@
 <template>
-  <v-app id="dashboard">
-    <v-navigation-drawer
+  <fragment>
+     <v-navigation-drawer
       v-model="drawer"
       app
     >
@@ -23,7 +23,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
     <v-app-bar
       app
       color="indigo"
@@ -32,32 +31,32 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>NestManager</v-toolbar-title>
     </v-app-bar>
-        <v-tabs 
-        color="#FF7F00"
-        grow
-        v-model="id"
-        >
-          <v-tab :key="pg.id" v-for="pg in PGs" >
-                {{pg.name}}
-          </v-tab>
-                
-        </v-tabs>
-         <v-tabs-items v-model="id">
-            <v-tab-item
-              v-for="item in PGs"
-              :key="item.id"
-            > 
-                 <Floors :id="item.id" />
-            </v-tab-item>
-          </v-tabs-items>
-       
-    <v-footer
-      color="indigo"
-      app
+    
+    <v-tabs 
+    color="#FF7F00"
+    grow
+    v-model="id"
+    
     >
-      <span class="white--text">&copy; 2019</span>
-    </v-footer>
-   </v-app> 
+      <v-tab :key="pg.id" v-for="pg in PGs" >
+            {{pg.name}}
+      </v-tab>
+            
+    </v-tabs>
+      <v-tabs-items v-model="id">
+        <v-tab-item
+          v-for="item in PGs"
+          :key="item.id"
+        > 
+             
+          <Floors :id="item.id" />
+
+
+        </v-tab-item>
+      </v-tabs-items>
+       
+    
+  </fragment> 
            
            
            
@@ -72,6 +71,7 @@
 
 <script>
 import Floors from './Floors';
+
   export default {
       name:'Dashboard',
       components:{
