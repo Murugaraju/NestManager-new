@@ -4,7 +4,8 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 //project components imports below
 import Login from './components/Login/Login'
-import LandingTemplate from './components/Dashboard/Dashboard'
+// import LandingTemplate from './components/Dashboard/Dashboard';
+import Main from './components/Main/Main';
 
 
 
@@ -36,7 +37,7 @@ export const router =  new VueRouter({
         path: '/',
         redirect: 'dashboard',
         name: 'dashboard',
-        component: LandingTemplate,
+        component: Main,
         children: [
           {
             path: 'dashboard',
@@ -70,15 +71,15 @@ export const router =  new VueRouter({
     ]
   })
 
-//   router.beforeEach((to, from, next) => {
-//     // redirect to login page if not logged in and trying to access a restricted page
-//     const publicPages = ['/login'];
-//     const authRequired = !publicPages.includes(to.path);
-//     const loggedIn = localStorage.getItem('NestManager');
+  // router.beforeEach((to, from, next) => {
+  //   // redirect to login page if not logged in and trying to access a restricted page
+  //   const publicPages = ['/login'];
+  //   const authRequired = !publicPages.includes(to.path);
+  //   const loggedIn = localStorage.getItem('NestManager');
 
-//     if (authRequired && !loggedIn) {
-//       return next('/login');
-//     }
+  //   if (authRequired && !loggedIn) {
+  //     return next('/login');
+  //   }
 
-//     next();
-//   })
+  //   next();
+  // })

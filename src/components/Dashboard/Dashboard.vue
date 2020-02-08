@@ -1,37 +1,15 @@
 <template>
   <fragment>
-     <v-navigation-drawer
-      v-model="drawer"
-      app
-    >
-      <v-list dense>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-home</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item link>
-          <v-list-item-action>
-            <v-icon>mdi-contact-mail</v-icon>
-          </v-list-item-action>
-          <v-list-item-content>
-            <v-list-item-title>Contact</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-    <v-app-bar
-      app
-      color="indigo"
-      dark
-    >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>NestManager</v-toolbar-title>
-    </v-app-bar>
-    
+     <v-container
+        class="fill-height"
+        fluid
+        id="container"
+      >
+        <v-row
+          align="left"
+          justify="left"
+        >
+          <v-col class="text-center">
     <v-tabs 
     color="#FF7F00"
     grow
@@ -54,7 +32,9 @@
 
         </v-tab-item>
       </v-tabs-items>
-       
+          </v-col>
+        </v-row>
+     </v-container>
     
   </fragment> 
            
@@ -108,3 +88,10 @@ import Floors from './Floors';
     
   }
 </script>
+
+<style  scoped>
+#container{
+  margin:0;
+ 
+}
+</style>

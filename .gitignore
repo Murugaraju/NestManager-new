@@ -22,3 +22,6 @@ yarn-error.log*
 
 # vertualenv
 venv
+
+# Ignoring pycache for dashboard
+dashboard/__pycache__
