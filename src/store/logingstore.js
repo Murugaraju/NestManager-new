@@ -29,8 +29,9 @@ const mutations={}
 
 
 export const Loginstore= {
-state,
-getters,
-actions,
-mutations
+    namedspace:true,
+    state,
+    getters,
+    actions,
+    mutations
 }
