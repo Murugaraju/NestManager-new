@@ -24,13 +24,14 @@ const actions={}
 
 
 
-const mutations={}
+// const mutations={}
 
 
 
-export const Loginstore= {
+export const LoginStore= {
+namespaced:true,
 state,
 getters,
-actions,
-mutations
+actions
+
 }

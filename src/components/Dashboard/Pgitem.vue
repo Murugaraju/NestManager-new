@@ -1,5 +1,9 @@
 <template>
-  <fragment>  
+  <fragment> 
+    <v-overlay v-if="loading" :value="loading">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+    <template v-else> 
     <v-list class="pt-2">
       <v-list-item>
         <!-- breadgrum area -->
@@ -11,16 +15,20 @@
       <v-list-item 
       @click="floorClicked()"
        :key="floor.id"
-        v-for="floor in Floors">
+        v-for="floor in floorList">
         <v-card width="100%"  class="mb-1">
-            <v-card-title>{{floor.floor}}</v-card-title>
+            <v-card-title>{{floor.name}}</v-card-title>
         </v-card>
       </v-list-item>
     </v-list>
+    </template>
   </fragment>
 </template>
 
 <script>
+
+import {mapGetters,mapActions} from 'vuex';
+
 export default {
     name:'Pgitem',
     props:{
@@ -40,7 +48,12 @@ export default {
             
         }
     },
+    computed:{
+      ...mapGetters('PgItemStore',['loading','floorList']),
+    },
+
     methods:{
+        ...mapActions('PgItemStore',['pgItemGet']),
          floorClicked:function () {
              console.log('came in floor clicked',this.$router,this.$route)
              
@@ -48,8 +61,11 @@ export default {
         
       }
     },
-    mounted:function(){console.log("came in ",this.$route);
-    this.pgId=this.$route.params.pgId
+    mounted:function(){
+      console.log("came in ",this.$route);
+      this.pgId=this.$route.params.pgId;
+      this.pgItemGet(this.pgId);
+
     }
 }
 </script>

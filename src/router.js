@@ -44,18 +44,19 @@ export const router =  new VueRouter({
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
-            component: () => import(/* webpackChunkName: "demo" */ './components/Dashboard/Dashboard'),
+            component: () => import(/* webpackChunkName: "demo" */ './components/Dashboard/Pglist'),
             meta: { title: 'Dashboard' }
           },
           {
             path: 'Dashboard/:pgId/Floors',
-            component: ()=> import('./components/Dashboard/PG/Pgitem'),
+            name:'floors',
+            component: ()=> import('./components/Dashboard/Pgitem'),
             meta: {title:'Floors'}
           },
           {
             path: 'Dashboard/:pgId/Floors/:flId/Rooms',
             name:'rooms',
-            component: ()=> import('./components/Dashboard/PG/Floor/Flooritem'),
+            component: ()=> import('./components/Dashboard/Floor/Flooritem'),
             meta: {title:'FloorItem'}
           },
         ]

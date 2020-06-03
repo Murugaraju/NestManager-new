@@ -33,9 +33,14 @@ export default {
         { id: 6, no: 1 },
         { id: 7, no: 1 },
         { id: 8, no: 1 }
-      ]
+      ],
+      pgId:undefined
     };
+  },
+  mounted:function () {
+    this.pgId=this.$route.pgId
   }
+
 };
 </script>
 

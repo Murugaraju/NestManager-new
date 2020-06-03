@@ -37,12 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'dashboard',
 
 ]
 
+
+
 MIDDLEWARE = [
+    #Middleware for cors headers below
+    'corsheaders.middleware.CorsMiddleware',
+    
+    #django's default middlewares below
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,9 +57,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
+   
     #Middleware belongs to Dashboard app
     'dashboard.middleware.Handler404forPgidFlid'
 ]
+
+
+CORS_ORIGIN_ALLOW_ALL=True
+# CORS_ALLOW_CREDENTIALS = True
+
 
 ROOT_URLCONF = 'backend_nest.urls'
 

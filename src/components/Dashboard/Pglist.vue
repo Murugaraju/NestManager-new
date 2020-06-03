@@ -1,14 +1,25 @@
 <template>
   <v-container fluid>
-    <v-card width="100%"  @click="onTabCliked()" class="mb-2" :key="pg.id" v-for="pg in PGs">
+    <v-overlay v-if="loading" :value="loading">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+    <template v-else>
+    <v-card width="100%"  @click="onTabCliked()" class="mb-2" 
+    :key="pg.id" 
+    v-for="pg in data.pgList">
       <v-card-title>
         <h1>{{pg.name}}</h1>
+        <h1>{{pg.location}}</h1>
       </v-card-title>
     </v-card>
+    </template>
   </v-container>
 </template>
 
 <script>
+import {mapActions,mapGetters} from 'vuex';
+
+
 export default {
      name: "Pglist",
   components: {
@@ -18,6 +29,7 @@ export default {
     return {
       drawer: null,
       id: null,
+      //Below PGs is temp
       PGs: [
         { id: 1, name: "PG 1" },
 
@@ -31,16 +43,27 @@ export default {
       ]
     };
   },
+  computed:{
+    ...mapGetters('PgListStore',['data','loading'])
+  },
   props: {
     source: String
   },
-
+  mounted:function() {
+     console.log('mounted in pglist',this.data);
+      this.pgListGet();
+      
+   
+  },
   methods: {
+    ...mapActions('PgListStore',['pgListGet']),
+    
     onTabCliked: function(ev) {
       console.log("tab clicked----->", ev);
-      this.$router.push({path:'Dashboard/1/Floors'})
+      this.$router.push({name:'floors',params:{pgId:1}})
     }
   },
+
   watch: {
     id: function() {
       console.log("came in because id data changed", this.id);
