@@ -25,7 +25,7 @@ SECRET_KEY = '^55_^y#y)8prst^n-2!y(er@pome&(x=qpzw_ia-e1af7zm*!5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGIN_URL = '/Auth/logincheck'
 # Application definition
