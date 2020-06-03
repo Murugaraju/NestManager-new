@@ -47,8 +47,21 @@ export const router =  new VueRouter({
             component: () => import(/* webpackChunkName: "demo" */ './components/Dashboard/Dashboard'),
             meta: { title: 'Dashboard' }
           },
+          {
+            path: 'Dashboard/:pgId/Floors',
+            component: ()=> import('./components/Dashboard/PG/Pgitem'),
+            meta: {title:'Floors'}
+          },
+          {
+            path: 'Dashboard/:pgId/Floors/:flId/Rooms',
+            name:'rooms',
+            component: ()=> import('./components/Dashboard/PG/Floor/Flooritem'),
+            meta: {title:'FloorItem'}
+          },
         ]
       },
+      
+     
       {
         path: '/Login',
         component: Login,

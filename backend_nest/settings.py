@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #Middleware belongs to Dashboard app
+    'dashboard.middleware.Handler404forPgidFlid'
 ]
 
 ROOT_URLCONF = 'backend_nest.urls'

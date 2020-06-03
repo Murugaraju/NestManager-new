@@ -3,7 +3,11 @@
      <v-navigation-drawer
       v-model="drawer"
       app
-      id="navigation-drawer"
+     
+   
+      class="blue lighten-4 "
+   
+     
     >
       <v-list dense>
         <v-list-item link>
@@ -11,7 +15,7 @@
             <v-icon>mdi-home</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title  >Home</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
         <v-list-item link>
@@ -27,8 +31,9 @@
 
     <v-app-bar
       app
-      color="indigo"
+      color="green"
       dark
+     hide-on-scroll
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>Application</v-toolbar-title>
@@ -45,12 +50,15 @@ export default {
     },
     props: {
       source: String,
+    },
+    watch:{
+      drawer:function(){
+        console.log('came in drawer')
+      }
     }
 }
 </script>
 
 <style scoped>
-  #navigation-drawer{
-    right-margin:0
-  }
+ 
 </style>

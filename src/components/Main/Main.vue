@@ -1,15 +1,15 @@
 <template>
    <fragment>
 
-      
+     
             <Navbar/>
-               
+               <v-content>
                 <router-view class="body" ></router-view>
-               
+               </v-content>
              <Footer />
             
            
-      
+     
         
 
 

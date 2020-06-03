@@ -6,8 +6,8 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 router.register(r'pg',PgModelViewSet)
-router.register(r'floor',FloorModelViewSet)
-router.register(r'room',RoomModelViewSet)
+router.register(r'(?P<pgid>\d+)/floor',FloorModelViewSet)
+router.register(r'(?P<pgid>\d+)/floor/(?P<flid>\d+)/room',RoomModelViewSet)
 
 
 

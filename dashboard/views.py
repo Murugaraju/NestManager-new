@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from rest_framework.viewsets import ModelViewSet
 from .models import Pg,Floor,Room
 from .serializers import PgModelSerializer,FloorModelSerializer,RoomModelSerializer
+from django.core.exceptions import ObjectDoesNotExist
+from rest_framework.response import Response
 # Create your views here.
 def sample(request):
     return HttpResponse('hurrays')
@@ -16,7 +18,10 @@ class PgModelViewSet(ModelViewSet):
 class FloorModelViewSet(ModelViewSet):
     queryset=Floor.objects.all()
     serializer_class=FloorModelSerializer
-
+    
+    
 class RoomModelViewSet(ModelViewSet):
     queryset=Room.objects.all()
     serializer_class=RoomModelSerializer
+    
+       
