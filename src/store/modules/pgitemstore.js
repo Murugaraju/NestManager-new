@@ -15,7 +15,7 @@ const actions ={
     pgItemGet({commit},pgId){
         console.log('printing in pgitem',pgId);
         commit('setLoadingTrue');
-        ax.get('http://127.0.0.1:8000/dashboard/'+pgId+'/floor/').
+        ax.get('/dashboard/'+pgId+'/floor/').
         then(
             (res)=>{
                 console.log('pgitem get call success',res);

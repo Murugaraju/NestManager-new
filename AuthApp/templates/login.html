@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+  <div id="app">
+      <v-app id="inspire">
+     <v-content>
+      <v-container class="fill-height" fluid>
+        <v-row align="center" justify="center">
+          <v-col cols="12" sm="8" md="4">
+            <form ref='forms'  method="post" >
+              {% csrf_token %}
+              <input name="username" :value="username" type="hidden"></input>
+              <input name="password" :value="password" type="hidden"></input>
+
+              <v-card  class="elevation-12"  :loading="loading">
+                <v-list-item-content>
+                  <v-col cols="auto">
+                  </v-col>
+                  <v-img class="white--text align-end" src=""></v-img>
+                  <center><v-list-item-title class="headline text-xs-center" >App</v-list-item-title></center>
+                </v-list-item-content>
+                <v-card-text>
+                                    <v-divider></v-divider>
+                  {% if  error %}
+                  <v-alert dense color="red" >
+                    {{error}}
+                 </v-alert>
+                  {%endif%}
+                   
+                  <v-form     v-model="valid">
+                    <v-text-field
+                    name="username"
+                    v-model="username"
+                    :rules="usernameRules"
+                    required
+                    prepend-icon="mdi-account-circle"
+                    label="Username"></v-text-field>
+
+                    <v-text-field
+                    name="password"
+                    v-model="password"
+                    required
+                    :rules="passwordRules"
+                    prepend-icon="mdi-lock"
+                    :append-icon="showpassword ? 'mdi-eye' :'mdi-eye-off'"
+                    :type="showpassword ? 'text': 'password'"
+                    @click:append="showpassword = !showpassword"
+                    v-on:keyup.enter="onEnter"
+                    label="Password"></v-text-field>
+                </v-card-text>
+                <v-divider></v-divider>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn :disabled="!valid" color="info"       type="submit">Login</v-btn>
+                </v-card-actions>
+              </v-form>
+
+              </v-card>
+            </form>
+             
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+  </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({
+      drawer: null,
+      showpassword: false,
+      loading : false,
+
+      // User Credentials
+      username : "",
+      password: "",
+
+      // validation
+      valid : false,
+      usernameRules: [
+        v => !!v || 'Name is required',
+      ],
+      passwordRules: [
+        v => !!v || 'Password is required',
+      ],
+
+      // Backend validation
+      error : false,
+      error_msg : ""
+
+    }),
+    methods: {
+      logincall(){
+          this.loading = true
+        const { username, password } = this;
+        
+      },
+      onEnter(){
+        console.log('enter clicked')
+        this.$refs.forms.submit()
+      }
+
+    }
+    })
+  </script>
+</body>
+</html>

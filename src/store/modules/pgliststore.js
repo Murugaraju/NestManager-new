@@ -29,7 +29,7 @@ const actions={
         
         //initiating the loading animation
         commit('setLoadingTrue')
-        ax.get('http://127.0.0.1:8000/dashboard/pg').then((res)=>{
+        ax.get('/dashboard/pg').then((res)=>{
             console.log('I am successfull',res);
             commit('setPgList',res.data);
             commit('setLoadingFalse');

@@ -17,7 +17,7 @@ class PgModelViewSet(ModelViewSet):
     serializer_class=PgModelSerializer
 
     def list(self,request,*args,**kwargs):
-        time.sleep(1)
+        # time.sleep(1)
         return super().list(request,*args,**kwargs)
 
 class FloorModelViewSet(ModelViewSet):
