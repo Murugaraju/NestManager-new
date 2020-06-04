@@ -12,7 +12,7 @@
       <v-list class="mt-5" rounded>
         <v-list-item  :to="{name:'pgs'}">
           <v-list-item-action>
-            <v-icon>mdi-view-dashboard</v-icon>
+            <v-icon color="blue">mdi-view-dashboard</v-icon>
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title>Dashboard</v-list-item-title>
@@ -22,9 +22,9 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar app color="green" dark hide-on-scroll>
+    <v-app-bar app color="blue darken-1" dark hide-on-scroll>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>NestManagerPG</v-toolbar-title>
     </v-app-bar>
   </fragment>
 </template>

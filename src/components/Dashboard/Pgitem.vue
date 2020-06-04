@@ -66,7 +66,7 @@ export default {
         ...mapActions('PgItemStore',['pgItemGet']),
          floorClicked:function (flId) {
              
-             
+             console.log('printing flId in pgItem',flId)
       this.$router.push({name:'rooms',params:{pgId:this.pgId,flId:flId}})
         
       }

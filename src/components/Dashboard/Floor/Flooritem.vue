@@ -17,9 +17,9 @@
     </v-list-item>
     <v-list-item>
       <v-row class="pa-1">
-        <v-col :key="room.id" v-for="room in rooms" lg="3" md="4" sm="6" cols="12">
+        <v-col :key="room.id" v-for="room in roomList" lg="3" md="4" sm="6" cols="12">
           <v-card>
-            <v-card-title>{{room.no}}</v-card-title>
+            <v-card-title>{{room.number_or_name}}</v-card-title>
           </v-card>
         </v-col>
       </v-row>
@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import {mapActions,mapGetters} from 'vuex';
 export default {
   name: "FloorItem",
   data: () => {
@@ -42,16 +43,29 @@ export default {
         { id: 7, no: 1 },
         { id: 8, no: 1 }
       ],
-      pgId: undefined
+      pgId: undefined,
+      flId: undefined,
     };
   },
   created:function(){
+    //Made the changes here after seing the life cycle templates loaded after created cycle
+    console.log('printing in flooritem created',this.$route.params)
     this.pgId = this.$route.params.pgId;
-    console.log('came in created',this.pgId)
+    this.flId = this.$route.params.flId;
+
+    console.log('came in created',this.flId)
+  },
+  computed:{
+    ...mapGetters('FloorItemStore',['roomList'])
+  },
+  methods:{
+    ...mapActions('FloorItemStore',['roomListGet'])
+
   },
   mounted: function() {
     
-    console.log("printing the pgId", this.pgId);
+    console.log("printing the flId", this.flId);
+    this.roomListGet({pgId:this.pgId,flId:this.flId});
   }
 };
 </script>
