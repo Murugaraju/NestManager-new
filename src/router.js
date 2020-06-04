@@ -20,7 +20,7 @@ import Main from './components/Main/Main';
 
 
 export const router =  new VueRouter({
-  mode: 'history',
+  // mode: 'history',
     linkExactActiveClass: 'active',
     routes: [
       // adding the main route object for the router-view outlet deciding
@@ -35,26 +35,28 @@ export const router =  new VueRouter({
       // },
       {
         path: '/',
-        redirect: 'Dashboard',
+        redirect: 'Dashboard/Pgs',
         name: 'dashboard',
         component: Main,
         children: [
           {
-            path: 'Dashboard',
+            path: 'Dashboard/Pgs',
             // route level code-splitting
             // this generates a separate chunk (about.[hash].js) for this route
             // which is lazy-loaded when the route is visited.
             component: () => import(/* webpackChunkName: "demo" */ './components/Dashboard/Pglist'),
-            meta: { title: 'Dashboard' }
+            name:'pgs',
+            meta: { title: 'Pgs' },
+           
           },
           {
-            path: 'Dashboard/:pgId/Floors',
+            path: 'Dashboard/Pg/:pgId/Floors',
             name:'floors',
             component: ()=> import('./components/Dashboard/Pgitem'),
             meta: {title:'Floors'}
           },
           {
-            path: 'Dashboard/:pgId/Floors/:flId/Rooms',
+            path: 'Dashboard/Pg/:pgId/Floor/:flId/Rooms',
             name:'rooms',
             component: ()=> import('./components/Dashboard/Floor/Flooritem'),
             meta: {title:'FloorItem'}

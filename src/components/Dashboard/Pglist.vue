@@ -4,26 +4,28 @@
       <v-progress-circular indeterminate size="64"></v-progress-circular>
     </v-overlay>
     <template v-else>
-    <v-card width="100%"  @click="onTabCliked()" class="mb-2" 
-    :key="pg.id" 
-    v-for="pg in data.pgList">
+   <v-card width="100%"  @click="onTabCliked(pg.id)" class="mb-2"
+   :key="pg.id" 
+   v-for="pg in data.pgList"
+    >
       <v-card-title>
         <h1>{{pg.name}}</h1>
         <h1>{{pg.location}}</h1>
       </v-card-title>
     </v-card>
+    
     </template>
   </v-container>
 </template>
 
 <script>
 import {mapActions,mapGetters} from 'vuex';
-
+// import Pgitem from './Pgt';
 
 export default {
      name: "Pglist",
   components: {
-    // Floors
+    // Pgitem
   },
   data: () => {
     return {
@@ -58,9 +60,9 @@ export default {
   methods: {
     ...mapActions('PgListStore',['pgListGet']),
     
-    onTabCliked: function(ev) {
-      console.log("tab clicked----->", ev);
-      this.$router.push({name:'floors',params:{pgId:1}})
+    onTabCliked: function(pgId) {
+      console.log("tab clicked----->");
+      this.$router.push({name:'floors',params:{pgId:pgId}})
     }
   },
 

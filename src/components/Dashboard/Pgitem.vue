@@ -7,13 +7,21 @@
     <v-list class="pt-2">
       <v-list-item>
         <!-- breadgrum area -->
-        <a href>Pg{{pgId}}</a>/
-        <a href>Floors</a>
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on" color="blue" :to="{name:'pgs'}"><v-icon >mdi-arrow-left</v-icon></v-btn>
+          </template>
+           <span>Back</span>
+        </v-tooltip>
+       
+       <v-btn text to="{name:'pgs'}" >Pgs</v-btn>/
+       <v-btn text  :disabled="true">Floors</v-btn>
+
       </v-list-item>
     </v-list>
     <v-list >
       <v-list-item 
-      @click="floorClicked()"
+      @click="floorClicked(floor.id)"
        :key="floor.id"
         v-for="floor in floorList">
         <v-card width="100%"  class="mb-1">
@@ -50,20 +58,23 @@ export default {
     },
     computed:{
       ...mapGetters('PgItemStore',['loading','floorList']),
+      
+      
     },
 
     methods:{
         ...mapActions('PgItemStore',['pgItemGet']),
-         floorClicked:function () {
-             console.log('came in floor clicked',this.$router,this.$route)
+         floorClicked:function (flId) {
              
-      this.$router.push({name:'rooms',params:{pgId:1,flId:2}})
+             
+      this.$router.push({name:'rooms',params:{pgId:this.pgId,flId:flId}})
         
       }
     },
     mounted:function(){
-      console.log("came in ",this.$route);
+      // console.log("came in ",this.$route);
       this.pgId=this.$route.params.pgId;
+      
       this.pgItemGet(this.pgId);
 
     }
