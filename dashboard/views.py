@@ -18,6 +18,7 @@ class PgModelViewSet(ModelViewSet):
 
     def list(self,request,*args,**kwargs):
         # time.sleep(1)
+        print('Came dude in PG')
         return super().list(request,*args,**kwargs)
 
 class FloorModelViewSet(ModelViewSet):

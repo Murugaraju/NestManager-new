@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-LOGIN_URL = '/Auth/logincheck'
+# LOGIN_URL = '/Auth/logincheck'
 # Application definition
 
 INSTALLED_APPS = [

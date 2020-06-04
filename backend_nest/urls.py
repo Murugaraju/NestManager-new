@@ -24,7 +24,8 @@ class Myview(LoginRequiredMixin, TemplateView):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Myview.as_view()),
+    # path('', Myview.as_view()),
+    # path('',TemplateView.as_view(template_name='check.html')),
     path('dashboard/', include('dashboard.urls')),
     path('Auth/', include('AuthApp.urls')),
 ]
