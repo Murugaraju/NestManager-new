@@ -2,7 +2,7 @@ import ax from '../../axios';
 
 const state={
     loading:false,
-    status:0,
+    status:200,
     data:{
         roomList:[]
     } ,//always the api success 2xx response,
@@ -39,7 +39,7 @@ const actions={
         catch(
             (error)=>{
                 console.log('error occured',error);
-                commit('setLoadingFalse');
+                commit('setLoadingFalse',error.response.status);
 
             }
         )
@@ -56,8 +56,13 @@ const mutations={
     setLoadingTrue(state){
         state.loading=true
     },
-    setLoadingFalse(state){
-        state.loading=false
+    setLoadingFalse(state,status){
+        state.loading=false;
+        if(status != undefined){
+            state.status=status
+        }else{
+            state.status=200
+        }
     }
 
 }

@@ -6,7 +6,8 @@ Vue.use(VueRouter)
 import Login from './components/Login/Login'
 // import LandingTemplate from './components/Dashboard/Dashboard';
 import Main from './components/Main/Main';
-
+//Page not Found
+import PageNotFound from './components/Utils/Pagenotfound';
 
 
 
@@ -61,7 +62,9 @@ export const router =  new VueRouter({
             component: ()=> import('./components/Dashboard/Floor/Flooritem'),
             meta: {title:'FloorItem'}
           },
-        ]
+        ],
+        
+
       },
       
      
@@ -83,7 +86,10 @@ export const router =  new VueRouter({
         ]
       },
       // otherwise redirect to home
-      { path: '*', redirect: '/' }
+      { path: '*', 
+      name:'pnf404',
+      component:PageNotFound
+    }
     ]
   })
 

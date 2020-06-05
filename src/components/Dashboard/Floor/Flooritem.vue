@@ -1,4 +1,9 @@
 <template>
+<fragment>
+<v-overlay v-if="loading" :value="loading">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
+  <template v-else>
   <v-list class="pt-2">
     <v-list-item>
       <!-- breadgrum area -->
@@ -25,6 +30,8 @@
       </v-row>
     </v-list-item>
   </v-list>
+  </template>
+</fragment>
 </template>
 
 <script>
@@ -56,11 +63,19 @@ export default {
     console.log('came in created',this.flId)
   },
   computed:{
-    ...mapGetters('FloorItemStore',['roomList'])
+    ...mapGetters('FloorItemStore',['roomList','loading','status'])
   },
   methods:{
     ...mapActions('FloorItemStore',['roomListGet'])
 
+  },
+  watch:{
+    status: function(n,o){
+      console.log('observing for the status value change',n,o)
+      if(n==404){
+        this.$router.push({name:'pnf404'})
+      }
+    }
   },
   mounted: function() {
     

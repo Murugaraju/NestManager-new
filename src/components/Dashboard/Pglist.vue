@@ -46,7 +46,7 @@ export default {
     };
   },
   computed:{
-    ...mapGetters('PgListStore',['data','loading'])
+    ...mapGetters('PgListStore',['data','loading','status'])
   },
   props: {
     source: String
@@ -67,8 +67,11 @@ export default {
   },
 
   watch: {
-    id: function() {
-      console.log("came in because id data changed", this.id);
+    status: function(n,o){
+      console.log('observing for the status value change',n,o)
+      if(n==404){
+        this.$router.push({name:'pnf404'})
+      }
     }
   }
 };

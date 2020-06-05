@@ -14,7 +14,7 @@
            <span>Back</span>
         </v-tooltip>
        
-       <v-btn text to="{name:'pgs'}" >Pgs</v-btn>/
+       <v-btn text :to="{name:'pgs'}" >Pgs</v-btn>/
        <v-btn text  :disabled="true">Floors</v-btn>
 
       </v-list-item>

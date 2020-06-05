@@ -2,7 +2,7 @@ import ax from '../../axios';
 
 const state={
     loading:false,
-    status:0,
+    status:200,
     data:{
         pgList:[]
     } ,//always the api success 2xx response,
@@ -37,8 +37,8 @@ const actions={
         }).
         catch(
             (error)=>{
-                console.log('error occured',error);
-                commit('setLoadingFalse');
+                console.log('error occured',Object.keys(error),error.response);
+                commit('setLoadingFalse',error.response.status);
 
             }
         )
@@ -55,8 +55,16 @@ const mutations={
     setLoadingTrue(state){
         state.loading=true
     },
-    setLoadingFalse(state){
+    setLoadingFalse(state,status){
+        //this is alway trigger at end of loading so we use it set error, status
         state.loading=false
+        console.log('in loading false',status)
+        if(status != undefined){
+            state.status=status
+        }else{
+            state.status=200
+        }
+
     }
 
 }

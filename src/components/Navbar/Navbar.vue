@@ -8,7 +8,7 @@
           </v-avatar>
         </v-row>
       </v-col>
-
+      <v-divider></v-divider>
       <v-list class="mt-5" rounded>
         <v-list-item  :to="{name:'pgs'}">
           <v-list-item-action>
