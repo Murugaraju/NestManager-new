@@ -36,6 +36,7 @@
 
 <script>
 import {mapActions,mapGetters} from 'vuex';
+
 export default {
   name: "FloorItem",
   data: () => {
@@ -81,6 +82,7 @@ export default {
     
     console.log("printing the flId", this.flId);
     this.roomListGet({pgId:this.pgId,flId:this.flId});
+    
   }
 };
 </script>

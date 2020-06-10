@@ -25,6 +25,9 @@ const getters={
 const actions={
     //actions methods first argumet as object
     //will do object destructure to get commit only
+    loadingReset({commit}){
+        commit('setLoadingFalse')
+    },
     pgListGet: function({commit}){
         
         //initiating the loading animation

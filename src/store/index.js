@@ -6,6 +6,7 @@ import {PgListStore} from './modules/pgliststore';
 import {CentralLoaderStore} from './centralloaderstore';
 import {PgItemStore} from './modules/pgitemstore';
 import {FloorItemStore} from './modules/flooritemstore';
+import {PgCreateStore} from './modules/pgcreatestore';
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
@@ -14,7 +15,8 @@ export const store = new Vuex.Store({
         PgListStore,
         CentralLoaderStore,
         PgItemStore,
-        FloorItemStore
+        FloorItemStore,
+        PgCreateStore
 
     }
 })

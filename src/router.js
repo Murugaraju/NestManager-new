@@ -51,6 +51,11 @@ export const router =  new VueRouter({
            
           },
           {
+            path: 'Dashboard/Pg/CreatePg',
+            component:()=> import('./components/Dashboard/Pgcreate'),
+            name:'pgcreate'
+          },
+          {
             path: 'Dashboard/Pg/:pgId/Floors',
             name:'floors',
             component: ()=> import('./components/Dashboard/Pgitem'),
